@@ -4,12 +4,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { router } from 'expo-router';
 import { Plus, User, Check } from 'lucide-react-native';
-import {
-  useFonts,
-  InstrumentSans_400Regular,
-  InstrumentSans_500Medium,
-  InstrumentSans_700Bold,
-} from '@expo-google-fonts/instrument-sans';
 import { useTheme } from '@/utils/theme';
 import KeyboardAvoidingAnimatedView from '@/components/KeyboardAvoidingAnimatedView';
 
@@ -18,16 +12,6 @@ export default function AddAccount() {
   const { colors } = useTheme();
   const [username, setUsername] = useState('');
   const [loading, setLoading] = useState(false);
-
-  const [loaded, error] = useFonts({
-    InstrumentSans_400Regular,
-    InstrumentSans_500Medium,
-    InstrumentSans_700Bold,
-  });
-
-  if (!loaded && !error) {
-    return null;
-  }
 
   const handleAddAccount = async () => {
     if (!username.trim()) {
@@ -91,7 +75,7 @@ export default function AddAccount() {
           <View style={{ marginBottom: 40 }}>
             <Text style={{
               fontSize: 28,
-              fontFamily: 'InstrumentSans_700Bold',
+              fontWeight: 'bold',
               color: colors.text,
               marginBottom: 8
             }}>
@@ -99,7 +83,7 @@ export default function AddAccount() {
             </Text>
             <Text style={{
               fontSize: 16,
-              fontFamily: 'InstrumentSans_400Regular',
+              fontWeight: '400',
               color: colors.textSecondary,
               lineHeight: 24
             }}>
@@ -126,7 +110,7 @@ export default function AddAccount() {
             <View>
               <Text style={{
                 fontSize: 16,
-                fontFamily: 'InstrumentSans_500Medium',
+                fontWeight: '500',
                 color: colors.text,
                 marginBottom: 8
               }}>
@@ -147,7 +131,7 @@ export default function AddAccount() {
                   style={{
                     flex: 1,
                     fontSize: 16,
-                    fontFamily: 'InstrumentSans_400Regular',
+                    fontWeight: '400',
                     color: colors.text,
                     marginLeft: 12,
                   }}
@@ -163,7 +147,7 @@ export default function AddAccount() {
               </View>
               <Text style={{
                 fontSize: 14,
-                fontFamily: 'InstrumentSans_400Regular',
+                fontWeight: '400',
                 color: colors.textSecondary,
                 marginTop: 8
               }}>
@@ -193,7 +177,7 @@ export default function AddAccount() {
               {loading ? (
                 <Text style={{
                   fontSize: 16,
-                  fontFamily: 'InstrumentSans_600SemiBold',
+                  fontWeight: '600',
                   color: colors.textSecondary,
                 }}>
                   Adding Account...
@@ -203,7 +187,7 @@ export default function AddAccount() {
                   <Check size={20} color={colors.background} strokeWidth={2} />
                   <Text style={{
                     fontSize: 16,
-                    fontFamily: 'InstrumentSans_600SemiBold',
+                    fontWeight: '600',
                     color: colors.background,
                     marginLeft: 8,
                   }}>
@@ -225,7 +209,7 @@ export default function AddAccount() {
           }}>
             <Text style={{
               fontSize: 16,
-              fontFamily: 'InstrumentSans_500Medium',
+              fontWeight: '500',
               color: colors.text,
               marginBottom: 12
             }}>
@@ -233,7 +217,7 @@ export default function AddAccount() {
             </Text>
             <Text style={{
               fontSize: 14,
-              fontFamily: 'InstrumentSans_400Regular',
+              fontWeight: '400',
               color: colors.textSecondary,
               lineHeight: 20
             }}>

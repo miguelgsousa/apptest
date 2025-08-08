@@ -9,7 +9,7 @@ export default function ScreenHeader({ title, subtitle, style = {} }) {
     <View style={{ marginBottom: 60, ...style }}>
       <Text style={{
         fontSize: 24,
-        fontFamily: 'InstrumentSans_700Bold',
+        fontWeight: 'bold',
         color: colors.text,
         marginBottom: 8
       }}>
@@ -18,7 +18,7 @@ export default function ScreenHeader({ title, subtitle, style = {} }) {
       {subtitle && (
         <Text style={{
           fontSize: 16,
-          fontFamily: 'InstrumentSans_400Regular',
+          fontWeight: '400',
           color: colors.textSecondary
         }}>
           {subtitle}

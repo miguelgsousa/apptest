@@ -38,7 +38,7 @@ export default function EmptyState({
       {/* Main Message */}
       <Text style={{
         fontSize: 20,
-        fontFamily: 'InstrumentSans_700Bold',
+        fontWeight: 'bold',
         color: colors.text,
         textAlign: 'center',
         marginBottom: 12
@@ -49,7 +49,7 @@ export default function EmptyState({
       {/* Description */}
       <Text style={{
         fontSize: 16,
-        fontFamily: 'InstrumentSans_400Regular',
+        fontWeight: '400',
         color: colors.textSecondary,
         textAlign: 'center',
         lineHeight: 24,

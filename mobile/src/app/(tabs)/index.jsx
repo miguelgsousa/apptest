@@ -24,12 +24,6 @@ import {
   Play,
   Tag,
 } from "lucide-react-native";
-import {
-  useFonts,
-  InstrumentSans_400Regular,
-  InstrumentSans_500Medium,
-  InstrumentSans_700Bold,
-} from "@expo-google-fonts/instrument-sans";
 import { useTheme } from "@/utils/theme";
 import EmptyState from "@/components/EmptyState";
 
@@ -39,12 +33,6 @@ export default function TikTokAccounts() {
   const [refreshing, setRefreshing] = useState(false);
   const [accounts, setAccounts] = useState([]);
   const { colors } = useTheme();
-
-  const [loaded, error] = useFonts({
-    InstrumentSans_400Regular,
-    InstrumentSans_500Medium,
-    InstrumentSans_700Bold,
-  });
 
   useEffect(() => {
     loadAccounts();
@@ -100,10 +88,6 @@ export default function TikTokAccounts() {
     const sign = growth >= 0 ? "+" : "";
     return `${sign}${formatFollowers(Math.abs(growth))}`;
   };
-
-  if (!loaded && !error) {
-    return null;
-  }
 
   const features = [
     {
@@ -233,7 +217,7 @@ export default function TikTokAccounts() {
           <Text
             style={{
               fontSize: 24,
-              fontFamily: "InstrumentSans_700Bold",
+              fontWeight: "bold",
               color: colors.text,
               lineHeight: 28,
             }}
@@ -304,7 +288,7 @@ export default function TikTokAccounts() {
                   <Text
                     style={{
                       fontSize: 18,
-                      fontFamily: "InstrumentSans_700Bold",
+                      fontWeight: "bold",
                       color: colors.text,
                       marginBottom: 4,
                     }}
@@ -323,7 +307,7 @@ export default function TikTokAccounts() {
                     <Text
                       style={{
                         fontSize: 14,
-                        fontFamily: "InstrumentSans_500Medium",
+                        fontWeight: "500",
                         color: colors.textSecondary,
                         marginLeft: 4,
                       }}
@@ -341,7 +325,7 @@ export default function TikTokAccounts() {
                       <Text
                         style={{
                           fontSize: 13,
-                          fontFamily: "InstrumentSans_400Regular",
+                          fontWeight: "400",
                           color: colors.textSecondary,
                           marginLeft: 4,
                         }}
@@ -367,7 +351,7 @@ export default function TikTokAccounts() {
                   <Text
                     style={{
                       fontSize: 12,
-                      fontFamily: "InstrumentSans_500Medium",
+                      fontWeight: "500",
                       color: account.posted_today
                         ? colors.success
                         : colors.textSecondary,
@@ -406,7 +390,7 @@ export default function TikTokAccounts() {
                       <Text
                         style={{
                           fontSize: 11,
-                          fontFamily: "InstrumentSans_500Medium",
+                          fontWeight: "500",
                           color: tag.color,
                           marginLeft: 4,
                         }}
@@ -441,7 +425,7 @@ export default function TikTokAccounts() {
                   <Text
                     style={{
                       fontSize: 14,
-                      fontFamily: "InstrumentSans_500Medium",
+                      fontWeight: "500",
                       color:
                         account.follower_growth >= 0
                           ? colors.success
@@ -456,7 +440,7 @@ export default function TikTokAccounts() {
                 <Text
                   style={{
                     fontSize: 12,
-                    fontFamily: "InstrumentSans_400Regular",
+                    fontWeight: "400",
                     color: colors.textSecondary,
                   }}
                 >

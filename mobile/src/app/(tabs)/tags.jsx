@@ -3,7 +3,6 @@ import { View, Text, ScrollView, TouchableOpacity, Alert, TextInput, Modal } fro
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { Tag, Plus, Edit3, Trash2, X } from 'lucide-react-native';
-import { useFonts, InstrumentSans_400Regular, InstrumentSans_500Medium, InstrumentSans_700Bold } from '@expo-google-fonts/instrument-sans';
 import { useTheme } from '@/utils/theme';
 
 const predefinedColors = [
@@ -20,12 +19,6 @@ export default function TagsScreen() {
   const [editingTag, setEditingTag] = useState(null);
   const [tagName, setTagName] = useState('');
   const [selectedColor, setSelectedColor] = useState(predefinedColors[0]);
-
-  const [loaded, error] = useFonts({
-    InstrumentSans_400Regular,
-    InstrumentSans_500Medium,
-    InstrumentSans_700Bold,
-  });
 
   useEffect(() => {
     loadTags();
@@ -127,10 +120,6 @@ export default function TagsScreen() {
     );
   };
 
-  if (!loaded && !error) {
-    return null;
-  }
-
   return (
     <View style={{ flex: 1, backgroundColor: colors.background }}>
       <StatusBar style={colors.statusBarStyle} />
@@ -149,7 +138,7 @@ export default function TagsScreen() {
           <View>
             <Text style={{
               fontSize: 28,
-              fontFamily: 'InstrumentSans_700Bold',
+              fontWeight: 'bold',
               color: colors.text,
               marginBottom: 8
             }}>
@@ -157,7 +146,7 @@ export default function TagsScreen() {
             </Text>
             <Text style={{
               fontSize: 16,
-              fontFamily: 'InstrumentSans_400Regular',
+              fontWeight: '400',
               color: colors.textSecondary,
               lineHeight: 24
             }}>
@@ -210,7 +199,7 @@ export default function TagsScreen() {
                 <Tag size={14} color={tag.color} strokeWidth={2} />
                 <Text style={{
                   fontSize: 16,
-                  fontFamily: 'InstrumentSans_600SemiBold',
+                  fontWeight: '600',
                   color: tag.color,
                   marginLeft: 8,
                   flex: 1,
@@ -270,7 +259,7 @@ export default function TagsScreen() {
             
             <Text style={{
               fontSize: 20,
-              fontFamily: 'InstrumentSans_700Bold',
+              fontWeight: 'bold',
               color: colors.text,
               marginBottom: 8,
             }}>
@@ -279,7 +268,7 @@ export default function TagsScreen() {
             
             <Text style={{
               fontSize: 16,
-              fontFamily: 'InstrumentSans_400Regular',
+              fontWeight: '400',
               color: colors.textSecondary,
               textAlign: 'center',
               lineHeight: 24,
@@ -302,7 +291,7 @@ export default function TagsScreen() {
               <Plus size={18} color={colors.background} strokeWidth={2} />
               <Text style={{
                 fontSize: 16,
-                fontFamily: 'InstrumentSans_600SemiBold',
+                fontWeight: '600',
                 color: colors.background,
                 marginLeft: 8,
               }}>
@@ -324,7 +313,7 @@ export default function TagsScreen() {
           }}>
             <Text style={{
               fontSize: 16,
-              fontFamily: 'InstrumentSans_600SemiBold',
+              fontWeight: '600',
               color: colors.text,
               marginBottom: 8,
             }}>
@@ -332,7 +321,7 @@ export default function TagsScreen() {
             </Text>
             <Text style={{
               fontSize: 14,
-              fontFamily: 'InstrumentSans_400Regular',
+              fontWeight: '400',
               color: colors.textSecondary,
               lineHeight: 20,
             }}>
@@ -371,7 +360,7 @@ export default function TagsScreen() {
             }}>
               <Text style={{
                 fontSize: 20,
-                fontFamily: 'InstrumentSans_700Bold',
+                fontWeight: 'bold',
                 color: colors.text,
               }}>
                 {editingTag ? 'Edit Tag' : 'Create New Tag'}
@@ -398,7 +387,7 @@ export default function TagsScreen() {
               <View>
                 <Text style={{
                   fontSize: 16,
-                  fontFamily: 'InstrumentSans_500Medium',
+                  fontWeight: '500',
                   color: colors.text,
                   marginBottom: 8,
                 }}>
@@ -413,7 +402,7 @@ export default function TagsScreen() {
                     paddingHorizontal: 16,
                     paddingVertical: 12,
                     fontSize: 16,
-                    fontFamily: 'InstrumentSans_400Regular',
+                    fontWeight: '400',
                     color: colors.text,
                   }}
                   placeholder="e.g. High Growth"
@@ -427,7 +416,7 @@ export default function TagsScreen() {
               <View>
                 <Text style={{
                   fontSize: 16,
-                  fontFamily: 'InstrumentSans_500Medium',
+                  fontWeight: '500',
                   color: colors.text,
                   marginBottom: 12,
                 }}>
@@ -513,7 +502,7 @@ export default function TagsScreen() {
                 >
                   <Text style={{
                     fontSize: 16,
-                    fontFamily: 'InstrumentSans_500Medium',
+                    fontWeight: '500',
                     color: colors.text,
                   }}>
                     Cancel
@@ -532,7 +521,7 @@ export default function TagsScreen() {
                 >
                   <Text style={{
                     fontSize: 16,
-                    fontFamily: 'InstrumentSans_600SemiBold',
+                    fontWeight: '600',
                     color: colors.background,
                   }}>
                     {editingTag ? 'Update Tag' : 'Create Tag'}

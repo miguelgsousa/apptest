@@ -19,7 +19,7 @@ export default function FeatureHighlight({ icon: Icon, text, iconSize = 16 }) {
       </View>
       <Text style={{
         fontSize: 14,
-        fontFamily: 'InstrumentSans_400Regular',
+        fontWeight: '400',
         color: colors.textSecondary,
         flex: 1
       }}>
